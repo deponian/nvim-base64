@@ -30,9 +30,9 @@ local function wrapper(action)
     -- leave visual mode
     vim.cmd([[execute "normal! \<esc>"]])
     -- reselect the area
-    vim.cmd("normal! gv")
+    vim.cmd("normal! gvd")
     -- replace text with encoded
-    vim.cmd([[execute "normal! c]] .. data .. [[\<esc>"]])
+    vim.api.nvim_put(vim.split(data, "\n"), "c", true, true)
   end
 end
 
